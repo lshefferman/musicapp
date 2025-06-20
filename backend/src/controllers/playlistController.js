@@ -54,7 +54,6 @@ export const editPlaylist = async (req, res, next) => {
       name,
       email
     );
-    // is this right
     if (!updatedPlaylist) return handleResponse(res, 404, "Playlist not found");
     handleResponse(res, 200, "Playlist updated successfully", updatedPlaylist);
   } catch (err) {

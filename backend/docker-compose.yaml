@@ -1,0 +1,12 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: starwars13LUVer!
+      POSTGRES_USER: postgres
+      POSTGRES_DB: music_app_db
+  app:
+    image: musicapp
+    ports:
+      - 13000:4500

@@ -6,6 +6,7 @@ import {
   deletePlaylist,
   editPlaylist,
 } from "../controllers/playlistController.js";
+import validatePlaylist from "../middleware/inputValidator.js";
 
 const router = express.Router();
 
@@ -16,12 +17,12 @@ router.get("/", getPlaylists);
 router.get("/:id", getPlaylist);
 
 // POST a new playlist
-router.post("/", createPlaylist);
+router.post("/", validatePlaylist, createPlaylist);
 
 // DELETE a playlist
 router.delete("/:id", deletePlaylist);
 
 // EDIT a playlist
-router.patch("/:id", editPlaylist);
+router.patch("/:id", validatePlaylist, editPlaylist);
 
 export default router;
